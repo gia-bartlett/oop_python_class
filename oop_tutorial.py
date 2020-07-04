@@ -23,15 +23,6 @@ class Employee:
         # that even if the instance has been changed
         self.pay = int(self.pay * self.raise_amount)
         # If this isn't otherwise set it will default to the class but can be set individually
-    @classmethod  # altering the functioinality of the method to receive class (cls) as first argument
-    def set_raise_amt(cls, amount):
-        cls.raise_amount = amount
-
-    @staticmethod
-    def is_workday(day):
-        if day.weekday() == 5 or day.weekday() == 6:  # Monday = 0 in Python
-            return False
-        return True
 
 
 #print(Employee.num_of_emp)  # = 0
@@ -71,18 +62,3 @@ emp2 = Employee("James", "Knight", "Sensei", 1000001)
 #print(emp1.__dict__) # namespace
 # {'first': 'Georgina', 'last': 'Bartlett', 'position': 'Kohai', 'pay': 40, 'email': 'Georgina.Bartlett@company.com'}
 
-# Employee.set_raise_amt(1.05)  # automatically takes cls
-# # this is the same as setting Employee.raise_amt = 1.05
-# print(emp1.raise_amount)  # = 1.05
-# print(emp2.raise_amount) # = 1.05
-
-# import datetime
-# my_date = datetime.date(2020, 7, 4)
-# print(Employee.is_workday(my_date)) # this day is Saturday so it returns False
-
-
-class Developer(Employee):
-    pass
-
-dev1 = Developer("Hector", "Bartlett", "Dog", 1400000000)
-print(dev1.email)
