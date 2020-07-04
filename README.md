@@ -84,10 +84,46 @@ Test class of code
 * isinstance  
 * issubclass  
 ```
-print(isinstance(plt1, Office_Plants))  # print True
-print(isinstance(plt1, Employee))  # print True
-print(isinstance(plt1, Developer))
-# print False even though they both inherit from Employee plt does not link to Developer in any way
-print(issubclass(Developer, Employee)) # True
-print(issubclass(Office_Plants, Employee)) # False
+print(isinstance(plt1, Office_Plants))  
+# print True because plt1 is created by Office Plants class
+print(isinstance(plt1, Employee))  
+# print True because plt1 inherited from Parent class Employee
+print(isinstance(plt1, Developer))  
+# print False even though they both inherit from Employee plt does not inherit from Developer in any way
+print(issubclass(Developer, Employee))  
+# True because Developer class inherits from Parent Employee class
+print(issubclass(Office_Plants, Developer))  
+# False because Oppice Plants does not inherit from Developer
 ```
+__Magic Methods__  
+```
+print(1 + 2) = 3
+print("a" + "b") = ab
+print(emp1) = <__main__.Employee object at 0x00000218B2BC2190>
+```
+using + actually uses a built in magic method that we don't have to type out each time  
+dunder add
+```
+# print(len("test")) = 4
+is the same as:
+print("test".__len__()) = 4
+```
+* repr  
+is an unambiguous representation of the object  
+should be used for debugging and logging  
+designed to be seen by other developers  
+
+
+```
+def __repr__(self):
+```
+
+* str
+is a readable representation of the object  
+should be used as a display to the end user
+```
+def __str__(self):
+```
+then when you use print(object)  
+it will default to the str version you set in the code  
+each can still be accessed using repr(object) and str(object) to directly call the special method  
