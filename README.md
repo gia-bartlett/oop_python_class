@@ -1,5 +1,5 @@
-#Welcome to my in depth study of OOP Python classes!
-Massive thanks to Corey Schafer on Youtube for his incredibly clear and in-depth tutorials!
+Welcome to my in depth study of OOP Python classes!  
+Massive thanks to Corey Schafer on Youtube for his incredibly clear and in-depth tutorials!  
 https://www.youtube.com/playlist?list=PL-osiE80TeTsqhIuOqKhwlXsIBIdSeYtc
 
 why: logically group data and functions in a way that is easy to reus and easy to build upon
