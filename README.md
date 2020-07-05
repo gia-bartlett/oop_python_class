@@ -127,3 +127,63 @@ def __str__(self):
 then when you use print(object)  
 it will default to the str version you set in the code  
 each can still be accessed using repr(object) and str(object) to directly call the special method  
+
+property_decorators.py:  
+pared down our Employee class to play with property decorators  
+* The syntax used to define properties is very concise and readable.  
+* By using @property, you can "reuse" the name of a property to avoid creating new names for the getters, setters, and deleters.  
+* A decorator function is basically a function that adds new functionality to a function that is passed as argument.  
+* It lets us add new functionality to an existing function without modifying it.  
+```
+def decorator(f):  # the sprinkles (that take f as an argument)
+    def new_function():  # the nested function
+        print("Extra Functionality")
+        f()
+    return new_function
+
+@decorator
+def initial_function(): # the ice cream (function that will be decorated)
+    print("Initial Functionality")
+
+initial_function()
+```
+@property:  
+is a built-in decorator for the property() function in Python.  
+It is used to give "special" functionality to certain methods to make them act as getters, setters, or deleters when we define properties in a class.  
+```
+class House:
+
+	def __init__(self, price):
+		self.price = price
+``` 
+Since the attribute is currently public (no leading underscore),  
+it is very likely that you and other developers in your team accessed and modified the attribute directly in other parts of the program using dot notation, like this:
+```
+# Access value
+obj.price # obj represents a variable that references an instance of House.
+
+# Modify value
+obj.price = 40000
+```  
+  
+```
+class House:
+
+	def __init__(self, price):
+		self._price = price
+
+	@property
+	def price(self):
+		return self._price #  price attribute is now considered "protected" because we added a leading underscore to its name
+	
+	@price.setter # A setter - to set the value of the attribute.
+	def price(self, new_price):
+		if new_price > 0 and isinstance(new_price, float):
+			self._price = new_price
+		else:
+			print("Please enter a valid price")
+
+	@price.deleter # A deleter - to delete the instance attribute.
+	def price(self):
+		del self._price
+```
