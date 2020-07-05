@@ -174,7 +174,8 @@ class House:
 
 	@property
 	def price(self):
-		return self._price #  price attribute is now considered "protected" because we added a leading underscore to its name
+		return self._price
+    # price attribute is now considered "protected" because we added a leading underscore to its name
 	
 	@price.setter # A setter - to set the value of the attribute.
 	def price(self, new_price):
