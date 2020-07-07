@@ -11,7 +11,7 @@ class Employee:
         self.pay = float(pay)
         self.email = first + '.' + last + "@company.com"
         Employee.num_of_emp += 1  # set in the init because the init runs each instance
-        # Employee is used instead of self because we are never going ot want/need to override this
+        # Employee is used instead of self because we are never going to want/need to override this
 
 
     def full_name(self):
